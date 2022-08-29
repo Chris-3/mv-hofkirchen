@@ -15,10 +15,10 @@ const routes: Routes = [
       import('./inside/inside.module').then((m) => m.InsideModule),
     canActivate: [AuthGuard],
   },
-  {
-    path: 'voting/:id',
-    component: VotingComponent,
-  },
+  // {
+  //   path: 'voting/:id',
+  //   component: VotingComponent,
+  // },
 ];
 
 @NgModule({

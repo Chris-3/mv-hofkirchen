@@ -8,14 +8,33 @@ import { ToastrService } from "ngx-toastr";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router, private toaster: ToastrService) {}
 
-  ngOnInit(): void {}
+
+
+export class HeaderComponent implements OnInit {
+  public showMenu: boolean = false;
+  public showRouting: boolean = false;
+  
+  public items :any[]=[
+    {name: 'Musiker', route:'app/musiker'},
+    {name: 'Instrumente', route:'app/instrumente'},
+    {name: 'Voting', route:'app'}
+  ];
+
+  constructor(private authService: AuthService, private router: Router, private toaster: ToastrService) { }
+ 
+  ngOnInit(): void { }
 
   async signOut() {
     await this.authService.logout();
     this.router.navigateByUrl('/')
       .then(() => this.toaster.warning('You signed out'))
+  }
+
+  toggleProfileMenu() {
+    this.showMenu = !this.showMenu;
+  }
+  toggleRouting() {
+    this.showRouting = !this.showRouting;
   }
 }

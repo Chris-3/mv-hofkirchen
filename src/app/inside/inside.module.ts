@@ -9,6 +9,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ProfileComponent } from './profile/profile.component';
+import { InstrumenteComponent } from './instrumente/instrumente.component';
+import { MusikerComponent } from './musiker/musiker.component';
 
 const routes: Routes = [
   {
@@ -22,6 +25,18 @@ const routes: Routes = [
       {
         path: 'settings',
         component: SettingsComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+      },
+      {
+        path: 'instrumente',
+        component: ProfileComponent,
+      },
+      {
+        path: 'musiker',
+        component: ProfileComponent,
       },
       {
         path: ':id',
@@ -39,6 +54,9 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     SettingsComponent,
+    ProfileComponent,
+    InstrumenteComponent,
+    MusikerComponent,
   ],
   imports: [
     CommonModule,
@@ -48,4 +66,4 @@ const routes: Routes = [
   ],
   exports: [],
 })
-export class InsideModule {}
+export class InsideModule { }
