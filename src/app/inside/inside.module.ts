@@ -32,12 +32,13 @@ const routes: Routes = [
       },
       {
         path: 'instrumente',
-        component: ProfileComponent,
+        component: InstrumenteComponent,
       },
       {
         path: 'musiker',
-        component: ProfileComponent,
+        component: MusikerComponent,
       },
+      
       {
         path: ':id',
         component: VotingsDetailsComponent,

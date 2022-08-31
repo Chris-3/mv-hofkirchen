@@ -16,9 +16,10 @@ export class HeaderComponent implements OnInit {
   public showRouting: boolean = false;
   
   public items :any[]=[
-    {name: 'Musiker', route:'app/musiker'},
-    {name: 'Instrumente', route:'app/instrumente'},
-    {name: 'Voting', route:'app'}
+    {name: 'Kalender', route:'/app/calender'},
+    {name: 'Musiker', route:'/app/musiker'},
+    {name: 'Instrumente', route:'/app/instrumente'}
+    // {name: 'Voting', route:'app'}
   ];
 
   constructor(private authService: AuthService, private router: Router, private toaster: ToastrService) { }

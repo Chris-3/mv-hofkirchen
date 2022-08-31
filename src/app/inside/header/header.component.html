@@ -42,18 +42,14 @@
         <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a *ngFor="let item of items" routerLink=(item.route) routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+            <a routerLink="/app" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
               class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-              aria-current="page">{{item.name}}</a>
+              aria-current="page">Votings</a>
+            <div *ngFor="let item of items">
+              <a routerLink="{{item.route}}" routerLinkActive="active-link"
+                class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{item.name}}</a>
+            </div>
 
-            <a routerLink="/app/settings" routerLinkActive="active-link"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Settings</a>
-
-            <a href="#"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Instrumente</a>
-
-            <a href="#"
-              class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Musiker</a>
           </div>
         </div>
       </div>
@@ -123,15 +119,10 @@
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
       <a routerLink="/app" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
         class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Votings</a>
-
-      <a routerLink="/app/settings" routerLinkActive="active-link"
-        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Settings</a>
-
-      <a routerLink="/app" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
-        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-
-      <a routerLink="/app" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
-        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+        <div *ngFor="let item of items">
+          <a routerLink="{{item.route}}" routerLinkActive="active-link"
+            class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{item.name}}</a>
+        </div>
     </div>
   </div>
 </nav>
