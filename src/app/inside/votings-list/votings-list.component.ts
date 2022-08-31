@@ -11,7 +11,7 @@ import { Voting } from 'src/app/interfaces';
 export class VotingsListComponent implements OnInit {
   votings: Voting[] = [];
 
-  constructor(private dataService: DataService, private router: Router) {}
+  constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadVotings();
@@ -23,7 +23,6 @@ export class VotingsListComponent implements OnInit {
 
   async startVoting() {
     const record = await this.dataService.startVoting();
-
     if (!record.error && record.data?.length) {
       this.router.navigateByUrl(`/app/${record.data[0].id}`);
     }

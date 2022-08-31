@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './../page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -47,6 +48,7 @@ const routes: Routes = [
         path: ':id',
         component: VotingsDetailsComponent,
       },
+      
     ],
   },
 ];

@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { VotingComponent } from './voting/voting.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './login/login.component';
@@ -15,10 +16,8 @@ const routes: Routes = [
       import('./inside/inside.module').then((m) => m.InsideModule),
     canActivate: [AuthGuard],
   },
-  // {
-  //   path: 'voting/:id',
-  //   component: VotingComponent,
-  // },
+  { path: '**', pathMatch: 'full', 
+        component: PageNotFoundComponent },
 ];
 
 @NgModule({
