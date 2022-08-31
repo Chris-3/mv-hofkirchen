@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   public showRouting: boolean = false;
   
   public items :any[]=[
-    {name: 'Kalender', route:'/app/calender'},
+    {name: 'Kalender', route:'/app/calendar'},
     {name: 'Musiker', route:'/app/musiker'},
     {name: 'Instrumente', route:'/app/instrumente'}
     // {name: 'Voting', route:'app'}

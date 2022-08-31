@@ -12,6 +12,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ProfileComponent } from './profile/profile.component';
 import { InstrumenteComponent } from './instrumente/instrumente.component';
 import { MusikerComponent } from './musiker/musiker.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   {
@@ -38,7 +39,10 @@ const routes: Routes = [
         path: 'musiker',
         component: MusikerComponent,
       },
-      
+      {
+        path: 'calendar',
+        component: CalendarComponent,
+      },
       {
         path: ':id',
         component: VotingsDetailsComponent,
@@ -58,6 +62,7 @@ const routes: Routes = [
     ProfileComponent,
     InstrumenteComponent,
     MusikerComponent,
+    CalendarComponent,
   ],
   imports: [
     CommonModule,
