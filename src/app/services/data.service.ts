@@ -5,6 +5,7 @@ import { Voting, VotingOption } from '../interfaces';
 
 export const TABLE_VOTINGS = 'votings';
 export const TABLE_VOTING_OPTIONS = 'voting_options';
+export const TABLE_MUSICIANS='musicians';
 
 @Injectable({
   providedIn: 'root',
@@ -78,5 +79,13 @@ export class DataService {
       .delete()
       .eq('id', id)
       .single();
+  }
+
+  async getMusicians() {
+    const musicians = await this.supabase
+      .from(TABLE_MUSICIANS)
+      .select('*')
+      ;
+    return musicians.data || [];
   }
 }
