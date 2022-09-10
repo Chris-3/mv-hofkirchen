@@ -1,4 +1,4 @@
-import { DataService } from '../../services/data.service';
+import { DataService } from 'src/app/services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Voting } from 'src/app/interfaces';

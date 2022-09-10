@@ -6,7 +6,7 @@ import {
   Validators,
   FormArray,
 } from '@angular/forms';
-import { DataService } from './../../services/data.service';
+import { DataService } from 'src/app/services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';

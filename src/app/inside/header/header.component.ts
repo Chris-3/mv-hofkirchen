@@ -18,8 +18,8 @@ export class HeaderComponent implements OnInit {
   public items :any[]=[
     {name: 'Kalender', route:'/Home/Kalender'},
     {name: 'Musiker', route:'/Home/Musiker'},
-    {name: 'Instrumente', route:'/Home/Instrumente'}
-    // {name: 'Voting', route:'app'}
+    {name: 'Instrumente', route:'/Home/Instrumente'},
+    {name: 'Abstimmungen', route:'/Home/Abstimmungen'}
   ];
 
   constructor(private authService: AuthService, private router: Router, private toaster: ToastrService) { }
