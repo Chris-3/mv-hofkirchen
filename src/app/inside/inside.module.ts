@@ -37,7 +37,7 @@ const routes: Routes = [
         component: InstrumenteComponent,
       },
       {
-        path: 'musiker',
+        path: 'test',
         component: MusikerComponent,
       },
       {

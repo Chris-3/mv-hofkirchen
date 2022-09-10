@@ -20,6 +20,8 @@ export class MusikerComponent implements OnInit {
     this.musicians = await this.dataService.getMusicians();
   }
 
-  async newMusician() { }
+  async newMusician() {
+    // this.router.navigateByUrl(`/app/${record.data[0].id}`);
+   }
 
 }
