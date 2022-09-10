@@ -96,7 +96,8 @@
               role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
             <a routerLink="/Home/settings" routerLinkActive="active-link" class="block px-4 py-2 text-sm text-gray-700"
               role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-            <a (click)="signOut()" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
+            <a (click)="signOut()" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" 
+            class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
               id="user-menu-item-2">Sign out</a>
           </div>
 
