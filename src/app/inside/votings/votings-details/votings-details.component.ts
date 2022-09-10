@@ -67,7 +67,7 @@ export class VotingsDetailsComponent implements OnInit {
   async deleteVoting() {
     await this.dataService.deleteVoting(this.voting.id);
     this.toaster.info('Voting deleted!');
-    this.router.navigateByUrl('/app');
+    this.router.navigateByUrl('/Home');
   }
 
   get options(): FormArray {

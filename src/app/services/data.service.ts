@@ -1,3 +1,4 @@
+import { Musician } from './../interfaces/musician';
 import { Injectable } from '@angular/core';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
@@ -5,7 +6,6 @@ import { Voting, VotingOption } from '../interfaces';
 
 export const TABLE_VOTINGS = 'votings';
 export const TABLE_VOTING_OPTIONS = 'voting_options';
-export const TABLE_MUSICIANS='musicians';
 
 @Injectable({
   providedIn: 'root',
@@ -81,11 +81,45 @@ export class DataService {
       .single();
   }
 
-  async getMusicians() {
-    const musicians = await this.supabase
-      .from(TABLE_MUSICIANS)
+  async getDataFromTable(table: string) {
+    const { data, error } = await this.supabase
+      .from(table)
       .select('*')
       ;
-    return musicians.data || [];
+    if (error) {
+      console.error(error);
+    }
+    return data || [];
   }
+
+  async updateDataOnTable(table: string, insert_data: any, id: number) {
+    const res = await this.supabase
+      .from(table)
+      .update(insert_data)
+      .eq('id', id)
+      .single();
+
+    if(res.error){
+      console.error(res.error);
+    }
+    return res;
+  }
+
+
+  async deleteDataFromTable(table: string, id: number) {
+    return this.supabase
+      .from(table)
+      .delete()
+      .eq('id', id)
+      .single();
+  }
+
+  async getDataDetails(table: string, id: number) {
+    return this.supabase
+      .from(table)
+      .select('*')
+      .eq('id', id)
+      .single();
+  }
+
 }

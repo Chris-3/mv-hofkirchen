@@ -54,4 +54,5 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('/Home', { replaceUrl: true });
     }
   }
+  
 }

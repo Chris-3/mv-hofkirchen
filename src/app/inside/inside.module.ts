@@ -11,7 +11,6 @@ import { SettingsComponent } from './settings/settings.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ProfileComponent } from './profile/profile.component';
 import { InstrumenteComponent } from './instrumente/instrumente.component';
-import { MusikerComponent } from './musiker/musiker.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { HomeComponent } from './home/home.component';
 import { InstrumentsListComponent } from './instruments/instruments-list/instruments-list.component';
@@ -64,7 +63,7 @@ const routes: Routes = [
         path: 'Abstimmungen/:id',
         component: VotingsDetailsComponent,
       },
-      
+
     ],
   },
 ];
@@ -79,7 +78,6 @@ const routes: Routes = [
     SettingsComponent,
     ProfileComponent,
     InstrumenteComponent,
-    MusikerComponent,
     CalendarComponent,
     HomeComponent,
     InstrumentsListComponent,

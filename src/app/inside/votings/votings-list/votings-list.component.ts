@@ -24,7 +24,7 @@ export class VotingsListComponent implements OnInit {
   async startVoting() {
     const record = await this.dataService.startVoting();
     if (!record.error && record.data?.length) {
-      this.router.navigateByUrl(`/app/${record.data[0].id}`);
+      this.router.navigateByUrl(`/Home/Abstimmung/${record.data[0].id}`);
     }
   }
 }

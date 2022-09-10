@@ -8,9 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { Login2Component } from './login2/login2.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, PageNotFoundComponent],
+  declarations: [AppComponent, LoginComponent, PageNotFoundComponent, Login2Component],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
