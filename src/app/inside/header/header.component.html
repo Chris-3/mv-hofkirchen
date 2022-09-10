@@ -42,7 +42,7 @@
         <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a routerLink="/app" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+            <a routerLink="/Home" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
               class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
               aria-current="page">Votings</a>
             <div *ngFor="let item of items">
@@ -92,9 +92,9 @@
             class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
             <!-- Active: "bg-gray-100", Not Active: "" -->
-            <a routerLink="/app/profile" routerLinkActive="active-link" class="block px-4 py-2 text-sm text-gray-700"
+            <a routerLink="/Home/profile" routerLinkActive="active-link" class="block px-4 py-2 text-sm text-gray-700"
               role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-            <a routerLink="/app/settings" routerLinkActive="active-link" class="block px-4 py-2 text-sm text-gray-700"
+            <a routerLink="/Home/settings" routerLinkActive="active-link" class="block px-4 py-2 text-sm text-gray-700"
               role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
             <a (click)="signOut()" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
               id="user-menu-item-2">Sign out</a>
@@ -117,7 +117,7 @@
   <div *ngIf="showRouting" class="sm:hidden" id="mobile-menu">
     <div class="px-2 pt-2 pb-3 space-y-1">
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a routerLink="/app" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+      <a routerLink="/Home" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
         class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Votings</a>
         <div *ngFor="let item of items">
           <a routerLink="{{item.route}}" routerLinkActive="active-link"

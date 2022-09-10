@@ -33,15 +33,15 @@ const routes: Routes = [
         component: ProfileComponent,
       },
       {
-        path: 'instrumente',
+        path: 'Instrumente',
         component: InstrumenteComponent,
       },
       {
-        path: 'test',
+        path: 'Musiker',
         component: MusikerComponent,
       },
       {
-        path: 'calendar',
+        path: 'Kalender',
         component: CalendarComponent,
       },
       {

@@ -11,7 +11,7 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'app',
+    path: 'Home',
     loadChildren: () =>
       import('./inside/inside.module').then((m) => m.InsideModule),
     canActivate: [AuthGuard],

@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     if (error) {
       // TODO show error alert
     } else {
-      this.router.navigateByUrl('/app', { replaceUrl: true })
+      this.router.navigateByUrl('/Home', { replaceUrl: true })
         .then(() => this.toaster.success('You signed in'));
     }
   }
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
       console.log(session);
       console.log(user);
 
-      this.router.navigateByUrl('/app', { replaceUrl: true });
+      this.router.navigateByUrl('/Home', { replaceUrl: true });
     }
   }
 }
