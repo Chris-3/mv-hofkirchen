@@ -1,126 +1,97 @@
-
 <div class="hidden sm:block" aria-hidden="true">
-    <div class="py-5">
-        <div class="border-t border-gray-200"></div>
-    </div>
+  <div class="py-5">
+    <div class="border-t border-gray-200"></div>
+  </div>
 </div>
 
 <div class="mt-10 sm:mt-0">
-    <div class="md:grid md:grid-cols-3 md:gap-6">
-        <div class="md:col-span-1">
-            <div class="px-4 sm:px-0">
-                <h3 class="text-lg font-medium leading-6 text-gray-900">Musiker Information</h3>
-                <p class="mt-1 text-sm text-gray-600">Use a permanent address where you can receive mail.</p>
-            </div>
-        </div>
-        <div class="mt-5 md:col-span-2 md:mt-0">
-            <form (ngSubmit)="updateMusician()" [formGroup]="musicianForm">
-                <div class="overflow-hidden shadow sm:rounded-md">
-                    <div class="bg-white px-4 py-5 sm:p-6">
-                        <div class="grid grid-cols-6 gap-6">
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="first-name" 
-                                    class="block text-sm font-medium text-gray-700">Vorname</label>
-                                <input 
-                                    formControlName="first_name"
-                                    type="text" 
-                                    name="first-name" 
-                                    id="first-name" 
-                                    autocomplete="given-name"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                    <span style="color: red;" *ngIf="!first_name?.valid">Darf nicht leer sein</span>
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-3">
-                                <label for="last-name" 
-                                    class="block text-sm font-medium text-gray-700">Nachname</label>
-                                <input 
-                                    formControlName="last_name"
-                                    type="text" 
-                                    name="last-name" 
-                                    id="last-name" 
-                                    autocomplete="family-name"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                    <span style="color: red;" *ngIf="!last_name?.valid">Darf nicht leer sein</span>
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-4">
-                                <label for="tel-number" 
-                                    class="block text-sm font-medium text-gray-700">Telefonnummer
-                                </label>
-                                <input 
-                                    formControlName="tel_number"
-                                    type="tel" 
-                                    name="tel-number" 
-                                    id="tel-number" 
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                    <span style="color: red;" *ngIf="!tel_number?.valid">Bitte nur Zahlen verwenden</span>
-                            </div>
-
-                            <!-- <div class="col-span-6 sm:col-span-3">
-                  <label for="country" class="block text-sm font-medium text-gray-700">Country</label>
-                  <select id="country" name="country" autocomplete="country-name" class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-                    <option>United States</option>
-                    <option>Canada</option>
-                    <option>Mexico</option>
-                  </select>
-                </div> -->
-
-                            <div class="col-span-6">
-                                <label 
-                                    for="street-address" 
-                                    class="block text-sm font-medium text-gray-700">Straße und Hausnummer</label>
-                                <input 
-                                    formControlName="street_address"
-                                    type="text" 
-                                    name="street-address" 
-                                    id="street-address"
-                                    autocomplete="street-address"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                                <label 
-                                    for="city" 
-                                    class="block text-sm font-medium text-gray-700">Ort</label>
-                                <input 
-                                    formControlName="city"
-                                    type="text" 
-                                    name="city" 
-                                    id="city" 
-                                    autocomplete="address-level2"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                            </div>
-
-                            <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                                <label for="postal-code" class="block text-sm font-medium text-gray-700">PLZ
-                                    </label>
-                                <input 
-                                    formControlName="postal_code"
-                                    type="text" 
-                                    name="postal-code" 
-                                    id="postal-code" 
-                                    autocomplete="postal-code"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-                                    <span style="color: red;" *ngIf="!postal_code?.valid">PLZ darf nur aus Zahlen bestehen max 6 Ziffern</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                        <button type="submit" [disabled]="musicianForm.invalid"
-                            class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                            <s *ngIf="!musicianForm.invalid">Save</s> </button>
-                    </div>
-                </div>
-            </form>
-        </div>
+  <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:col-span-1">
+      <div class="px-4 sm:px-0">
+        <h3 class="text-lg font-medium leading-6 text-gray-900">Musiker Information</h3>
+        <p class="mt-1 text-sm text-gray-600">Use a permanent address where you can receive mail.</p>
+      </div>
     </div>
+    <div class="mt-5 md:col-span-2 md:mt-0">
+      <form (ngSubmit)="updateMusician()" [formGroup]="musicianForm">
+        <div class="overflow-hidden shadow sm:rounded-md">
+          <div class="bg-white px-4 py-5 sm:p-6">
+            <div class="grid grid-cols-6 gap-6">
+              <div class="col-span-6 sm:col-span-3">
+                <label for="first-name" class="block text-sm font-medium text-gray-700">Vorname</label>
+                <input formControlName="first_name" type="text" name="first-name" id="first-name"
+                  autocomplete="given-name"
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                <span style="color: red;" *ngIf="!first_name?.valid && first_name?.touched">Darf nicht leer sein</span>
+              </div>
+
+              <div class="col-span-6 sm:col-span-3">
+                <label for="last-name" class="block text-sm font-medium text-gray-700">Nachname</label>
+                <input formControlName="last_name" type="text" name="last-name" id="last-name"
+                  autocomplete="family-name"
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                <span style="color: red;" *ngIf="!last_name?.valid && last_name?.touched">Darf nicht leer sein</span>
+              </div>
+
+              <div class="col-span-6 sm:col-span-4">
+                <label for="tel-number" class="block text-sm font-medium text-gray-700">Telefonnummer
+                </label>
+                <input formControlName="tel_number" type="tel" name="tel-number" id="tel-number"
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                <span style="color: red;" *ngIf="!tel_number?.valid">Bitte nur Zahlen verwenden</span>
+              </div>
+              <div class="col-span-6">
+                <label for="street-address" class="block text-sm font-medium text-gray-700">Straße und
+                  Hausnummer</label>
+                <input formControlName="street_address" type="text" name="street-address" id="street-address"
+                  autocomplete="street-address"
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+              </div>
+
+              <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                <label for="city" class="block text-sm font-medium text-gray-700">Ort</label>
+                <input formControlName="city" type="text" name="city" id="city" autocomplete="address-level2"
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+              </div>
+
+              <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                <label for="postal-code" class="block text-sm font-medium text-gray-700">PLZ
+                </label>
+                <input formControlName="postal_code" type="text" name="postal-code" id="postal-code"
+                  autocomplete="postal-code"
+                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                <span style="color: red;" *ngIf="!postal_code?.valid">PLZ darf nur aus Zahlen bestehen max 6
+                  Ziffern</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+            <button type="button" [swal]="{
+                title: 'Do you really want to delete this voting?',
+                text: 'This cannot be undone',
+                confirmButtonText: 'Delete',
+                confirmButtonColor: '#d63031',
+                denyButtonColor: '#aaa',
+                showDenyButton: true
+              }" (confirm)="deleteMusician()"
+              class="inline-flex justify-center py-2 px-4 mr-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+              Delete
+            </button>
+            <button type="submit" [disabled]="musicianForm.invalid"
+              class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+              save </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 <div class="hidden sm:block" aria-hidden="true">
-    <div class="py-5">
-        <div class="border-t border-gray-200"></div>
-    </div>
+  <div class="py-5">
+    <div class="border-t border-gray-200"></div>
+  </div>
 </div>
 
 <!-- <div class="mt-10 sm:mt-0">

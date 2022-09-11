@@ -21,7 +21,7 @@ export class MusiciansListComponent implements OnInit {
   }
 
   async newMusician() {
-    this.router.navigateByUrl(`/Home/Musiker/`);
+    this.router.navigateByUrl(`/Home/Musiker/new`);
    }
 
 }

@@ -100,6 +100,16 @@ export class DataService {
     }
     return data || [];
   }
+  // getDataFromTable(table: string) {
+  //   const data = this.supabase
+  //     .from(table)
+  //     .select('*')
+  //     ;
+  //   // if (error) {
+  //   //   console.error(error);
+  //   // }
+  //   return data || [];
+  // }
 
   async updateDataOnTable(table: string, insert_data: any, id: number) {
     const { data, error } = await this.supabase
