@@ -1,4 +1,6 @@
 export const TABLE_MUSICIANS='musicians';
+export const BUCKET_AVATARS='avatars';
+
 
 export interface Musician {
     id: number,
@@ -10,4 +12,5 @@ export interface Musician {
     postal_code?: number,
     creator_id: string,
     created_at: Date,
+    linked_acc: string,
 }

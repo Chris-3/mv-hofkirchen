@@ -100,16 +100,6 @@ export class DataService {
     }
     return data || [];
   }
-  // getDataFromTable(table: string) {
-  //   const data = this.supabase
-  //     .from(table)
-  //     .select('*')
-  //     ;
-  //   // if (error) {
-  //   //   console.error(error);
-  //   // }
-  //   return data || [];
-  // }
 
   async updateDataOnTable(table: string, insert_data: any, id: number) {
     const { data, error } = await this.supabase
@@ -150,5 +140,15 @@ export class DataService {
     }
     return data;
   }
+
+
+  downLoadImage(path: string) {
+    return this.supabase.storage.from('avatars').download(path);
+  }
+
+  uploadAvatar(filePath: string, file: File) {
+    return this.supabase.storage.from('avatars').upload(filePath, file);
+  }
+
 
 }

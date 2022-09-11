@@ -17,6 +17,7 @@ import { InstrumentsListComponent } from './instruments/instruments-list/instrum
 import { InstrumentsDetailsComponent } from './instruments/instruments-details/instruments-details.component';
 import { MusiciansListComponent } from './musicians/musicians-list/musicians-list.component';
 import { MusiciansDetailsComponent } from './musicians/musicians-details/musicians-details.component';
+import { AvatarComponent } from './musicians/avatar/avatar.component';
 
 const routes: Routes = [
   {
@@ -84,6 +85,7 @@ const routes: Routes = [
     InstrumentsDetailsComponent,
     MusiciansListComponent,
     MusiciansDetailsComponent,
+    AvatarComponent,
   ],
   imports: [
     CommonModule,

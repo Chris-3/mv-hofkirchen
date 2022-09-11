@@ -74,7 +74,6 @@ export class MusiciansDetailsComponent implements OnInit {
 
   }
   
-
   async deleteMusician() {
     await this.dataService.deleteDataFromTable(TABLE_MUSICIANS, this.musician.id);
     this.toaster.info('Musiker daten gelöscht!');
