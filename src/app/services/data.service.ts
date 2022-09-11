@@ -81,6 +81,15 @@ export class DataService {
       .single();
   }
 
+  async addNewLineToTable(table: string, insert_data: any) {
+    const { data, error } = await this.supabase.from(table)
+      .insert(insert_data);
+    if (error) {
+      console.error(error);
+    }
+    return data || [];
+  }
+
   async getDataFromTable(table: string) {
     const { data, error } = await this.supabase
       .from(table)
@@ -93,33 +102,43 @@ export class DataService {
   }
 
   async updateDataOnTable(table: string, insert_data: any, id: number) {
-    const res = await this.supabase
+    const { data, error } = await this.supabase
       .from(table)
       .update(insert_data)
       .eq('id', id)
       .single();
 
-    if(res.error){
-      console.error(res.error);
+    if (error) {
+      console.error(error);
     }
-    return res;
+    return data;
   }
 
 
   async deleteDataFromTable(table: string, id: number) {
-    return this.supabase
+    const { data, error } = await this.supabase
       .from(table)
       .delete()
       .eq('id', id)
       .single();
+
+    if (error) {
+      console.error(error);
+    }
+    return data;
   }
 
   async getDataDetails(table: string, id: number) {
-    return this.supabase
+    const { data, error } = await this.supabase
       .from(table)
       .select('*')
       .eq('id', id)
       .single();
+
+    if (error) {
+      console.error(error);
+    }
+    return data;
   }
 
 }

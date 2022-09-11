@@ -1,3 +1,4 @@
+import { Login2Component } from './login2/login2.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './login/login.component';
