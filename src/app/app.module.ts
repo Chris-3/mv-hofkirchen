@@ -9,6 +9,7 @@ import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { Login2Component } from './login2/login2.component';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, PageNotFoundComponent, Login2Component],
@@ -17,7 +18,8 @@ import { Login2Component } from './login2/login2.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()],
+    ToastrModule.forRoot(),
+    IonicModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent],
 })
