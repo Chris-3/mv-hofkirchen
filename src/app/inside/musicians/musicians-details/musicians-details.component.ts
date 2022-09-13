@@ -1,3 +1,4 @@
+import { FileService } from './../../../services/file.service';
 import { TABLE_MUSICIANS, Musician } from './../../../interfaces/musician';
 // import { Observable, zip } from 'rxjs';
 
@@ -13,6 +14,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs/operators';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { LocalFile } from 'src/app/interfaces/localFile';
+
 
 @Component({
   selector: 'app-musicians-details',
@@ -24,13 +28,15 @@ export class MusiciansDetailsComponent implements OnInit {
   id: any = null!;
   musicianForm: FormGroup;
   includedFields: any;
+  images: LocalFile[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
     private fb: FormBuilder,
     private toaster: ToastrService,
-    private router: Router
+    private router: Router,
+    private fileService: FileService
   ) {
     this.musicianForm = this.fb.group({
       first_name: ['', Validators.required],
@@ -54,6 +60,7 @@ export class MusiciansDetailsComponent implements OnInit {
       this.musician = await this.dataService.getDataDetails(TABLE_MUSICIANS, +this.id);
       this.musicianForm.patchValue(this.musician);
     }
+    this.fileService.loadFiles(this.images);
     this.trackEmptyFields();
   }
 
@@ -73,7 +80,7 @@ export class MusiciansDetailsComponent implements OnInit {
     }
 
   }
-  
+
   async deleteMusician() {
     await this.dataService.deleteDataFromTable(TABLE_MUSICIANS, this.musician.id);
     this.toaster.info('Musiker daten gelöscht!');
@@ -106,4 +113,21 @@ export class MusiciansDetailsComponent implements OnInit {
 
     return fields;
   }
+
+  async uploadAvatar() {
+    this.fileService.selectImage();
+  }
+
+  //   async selectImage() {
+  //     const image = await Camera.getPhoto({
+  //         quality: 90,
+  //         allowEditing: false,
+  //         resultType: CameraResultType.Uri,
+  //         source: CameraSource.Photos // Camera, Photos or Prompt!
+  //     });
+  //     console.log('image')
+  //     if (image) {
+  //         this.fileService.saveImage(image)
+  //     }
+  // }
 }
