@@ -1,8 +1,13 @@
+import { TempFileInfo } from './../interfaces/localFile';
 import { Injectable } from '@angular/core';
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Directory, FileInfo, Filesystem } from '@capacitor/filesystem';
 import { LoadingController, Platform } from '@ionic/angular';
-import { IMAGE_DIR, LocalFile } from '../interfaces/localFile';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { environment } from 'src/environments/environment.prod';
+import { FILE_DB, IMAGE_DIR, LocalFile } from '../interfaces/localFile';
+import { AuthService } from './auth.service';
+
 
 
 
@@ -14,8 +19,16 @@ export class FileService {
   
   constructor(
     private platform: Platform,
-    private loadingCtrl: LoadingController
-  ) { }
+    private loadingCtrl: LoadingController,
+    private supabase: SupabaseClient,
+    private userService: AuthService
+  ) { 
+    this.supabase = createClient(
+      environment.supabaseUrl,
+      environment.supabaseKey
+    );
+
+  }
 
 
   async loadFiles(images:LocalFile[]) {
@@ -124,5 +137,58 @@ export class FileService {
     reader.readAsDataURL(blob);
   });
 
+
+  async uploadFile(cameraFile: Photo, info: TempFileInfo): Promise<any> {
+    let file = null;
+
+    // Retrieve a file from the URI based on mobile/web
+    if (this.platform.is('hybrid')) {
+      const data = await Filesystem.readFile({
+        path: <string>(cameraFile.path)
+      });
+
+      file = await this.dataUrlToFile(data.data);
+    } else {
+      const blob = await fetch(cameraFile.webPath!).then(r => r.blob());
+      file = new File([blob], 'myfile', {
+        type: blob.type,
+      });
+    }
+
+    const time = new Date().getTime();
+    const bucketName = info.private ? 'private' : 'public';
+    const fileName = `${this.supabase.auth.user()?.id}-${time}.webp`;
+
+    // Upload the file to Supabase
+    const { data, error } = await this.supabase
+      .storage
+      .from(bucketName)
+      .upload(fileName, file);
+
+    info.file_name = fileName;
+    // Create a record in our DB
+    return this.saveFileInfo(info);
+  }
+
+  // Create a record in our DB
+  async saveFileInfo(info: TempFileInfo): Promise<any> {
+    const newFile = {
+      user_id: this.supabase.auth.user()?.id,
+      title: info.title,
+      private: info.private,
+      file_name: info.file_name
+    };
+
+    return this.supabase.from(FILE_DB).insert(newFile);
+  }
+
+  // Helper
+  private dataUrlToFile(dataUrl: string, fileName: string = 'myfile'): Promise<File> {
+    return fetch(`data:image.webp;base64,${dataUrl}`)
+      .then(res => res.blob())
+      .then(blob => {
+        return new File([blob], fileName, { type: 'image.webp' })
+      })
+  }
 
 }
