@@ -115,7 +115,6 @@ export class MusiciansDetailsComponent implements OnInit {
   }
 
   async uploadAvatar() {
-    this.fileService.selectImage();
   }
 
   //   async selectImage() {

@@ -1,4 +1,3 @@
-import { TempFileInfo } from './../interfaces/localFile';
 import { Injectable } from '@angular/core';
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Directory, FileInfo, Filesystem } from '@capacitor/filesystem';
@@ -115,7 +114,6 @@ export class FileService {
       const file = await Filesystem.readFile({
         path: <string>(photo.path)
       });
-
       return file.data;
     }
     else {

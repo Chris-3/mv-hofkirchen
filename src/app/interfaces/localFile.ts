@@ -9,7 +9,7 @@ export interface LocalFile {
 
 export const FILE_DB = 'files';
 
-export interface TempFileInfo {
+export interface MyFileInfo {
   private: boolean;
   title: string;
   file_name?: string;

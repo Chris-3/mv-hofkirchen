@@ -86,6 +86,7 @@ const routes: Routes = [
     MusiciansListComponent,
     MusiciansDetailsComponent,
     AvatarComponent,
+    
   ],
   imports: [
     CommonModule,
